@@ -791,10 +791,10 @@
 #define CCAPI_BITMEX_URL_WS_BASE "wss://www.bitmex.com"
 #endif
 #ifndef CCAPI_BINANCE_US_URL_WS_BASE
-#define CCAPI_BINANCE_US_URL_WS_BASE "wss://testnet.binance.vision/"
+#define CCAPI_BINANCE_US_URL_WS_BASE "wss://testnet.binance.vision"
 #endif
 #ifndef CCAPI_BINANCE_URL_WS_BASE
-#define CCAPI_BINANCE_URL_WS_BASE "wss://testnet.binance.vision/"
+#define CCAPI_BINANCE_URL_WS_BASE "wss://testnet.binance.vision"
 #endif
 #ifndef CCAPI_BINANCE_USDS_FUTURES_URL_WS_BASE
 #define CCAPI_BINANCE_USDS_FUTURES_URL_WS_BASE "wss://fstream.binance.com"
