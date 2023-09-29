@@ -857,10 +857,10 @@
 #define CCAPI_CRYPTOCOM_URL_WS_BASE "wss://stream.crypto.com"
 #endif
 #ifndef CCAPI_BYBIT_URL_WS_BASE
-#define CCAPI_BYBIT_URL_WS_BASE "wss://stream.bybit.com"
+#define CCAPI_BYBIT_URL_WS_BASE "wss://stream-testnet.bybit.com"
 #endif
 #ifndef CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE
-#define CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE "wss://stream.bybit.com"
+#define CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE "wss://stream-testnet.bybit.com"
 #endif
 #ifndef CCAPI_ASCENDEX_URL_WS_BASE
 #define CCAPI_ASCENDEX_URL_WS_BASE "wss://ascendex.com"
