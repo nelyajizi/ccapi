@@ -130,7 +130,7 @@ class ExecutionManagementServiceKucoinBase : public ExecutionManagementService {
     preSignedText += methodString;
     auto target = path;
     if (!queryString.empty()) {
-      target += queryString;
+      target +=  "?" + queryString;
     }
     preSignedText += target;
     preSignedText += body;
@@ -341,6 +341,7 @@ class ExecutionManagementServiceKucoinBase : public ExecutionManagementService {
         {CCAPI_EM_ORDER_LIMIT_PRICE, std::make_pair("price", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("dealSize", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_CUMULATIVE_FILLED_PRICE_TIMES_QUANTITY, std::make_pair("dealFunds", JsonDataType::STRING)},
+        {CCAPI_EM_ORDER_TIME, std::make_pair("orderTime", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("symbol", JsonDataType::STRING)}};
     const rj::Value& data = document["data"];
     if (operation == Request::Operation::CANCEL_ORDER || operation == Request::Operation::CANCEL_OPEN_ORDERS) {
@@ -473,6 +474,7 @@ class ExecutionManagementServiceKucoinBase : public ExecutionManagementService {
             element.insert(CCAPI_IS_MAKER, std::string(data["liquidity"].GetString()) == "taker" ? "0" : "1");
             element.insert(CCAPI_EM_ORDER_ID, data["orderId"].GetString());
             element.insert(CCAPI_EM_CLIENT_ORDER_ID, data["clientOid"].GetString());
+            element.insert(CCAPI_EM_ORDER_TIME, data["orderTime"].GetString());
             element.insert(CCAPI_EM_ORDER_INSTRUMENT, instrument);
             elementList.emplace_back(std::move(element));
             message.setElementList(elementList);
@@ -494,6 +496,7 @@ class ExecutionManagementServiceKucoinBase : public ExecutionManagementService {
                 {CCAPI_EM_ORDER_REMAINING_QUANTITY, std::make_pair("remainSize", JsonDataType::STRING)},
                 {CCAPI_EM_ORDER_STATUS, std::make_pair("status", JsonDataType::STRING)},
                 {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("symbol", JsonDataType::STRING)},
+                {CCAPI_EM_ORDER_TIME, std::make_pair("orderTime", JsonDataType::STRING)},
             };
             extractionFieldNameMap.insert({CCAPI_EM_ORDER_QUANTITY, std::make_pair("size", JsonDataType::STRING)});
             Element info;

@@ -244,6 +244,7 @@ class ExecutionManagementServiceBybit : public ExecutionManagementServiceBybitBa
             element.insert(CCAPI_IS_MAKER, x["m"].GetBool() ? "1" : "0");
             element.insert(CCAPI_EM_ORDER_ID, std::string(x["i"].GetString()));
             element.insert(CCAPI_EM_CLIENT_ORDER_ID, std::string(x["c"].GetString()));
+            element.insert(CCAPI_EM_ORDER_TIME, std::string(x["O"].GetString()));
             element.insert(CCAPI_EM_ORDER_INSTRUMENT, instrument);
             {
               auto it = x.FindMember("n");
@@ -277,6 +278,7 @@ class ExecutionManagementServiceBybit : public ExecutionManagementServiceBybitBa
                 {CCAPI_EM_ORDER_CUMULATIVE_FILLED_PRICE_TIMES_QUANTITY, std::make_pair("Z", JsonDataType::STRING)},
                 {CCAPI_EM_ORDER_STATUS, std::make_pair("X", JsonDataType::STRING)},
                 {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("s", JsonDataType::STRING)},
+                {CCAPI_EM_ORDER_TIME, std::make_pair("O", JsonDataType::STRING)},
             };
             Element info;
             this->extractOrderInfo(info, x, extractionFieldNameMap);
