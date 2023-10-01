@@ -86,6 +86,7 @@ class ExecutionManagementServiceAscendex : public ExecutionManagementService {
                        {CCAPI_EM_CLIENT_ORDER_ID, "id"},
                        {CCAPI_SYMBOL_ID, "symbol"},
                        {CCAPI_EM_ORDER_ID, "orderId"},
+                       {CCAPI_EM_ORDER_TIME, "t"},
                    }) {
     for (const auto& kv : param) {
       auto key = standardizationMap.find(kv.first) != standardizationMap.end() ? standardizationMap.at(kv.first) : kv.first;
@@ -485,6 +486,7 @@ class ExecutionManagementServiceAscendex : public ExecutionManagementService {
                   {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("cfq", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_STATUS, std::make_pair("st", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("s", JsonDataType::STRING)},
+                  {CCAPI_EM_ORDER_TIME, std::make_pair("t", JsonDataType::STRING)},
               };
               Element info;
               this->extractOrderInfo(info, data, extractionFieldNameMap);

@@ -26,6 +26,18 @@ class Element CCAPI_FINAL {
     auto it = this->tagValueMap.find(tag);
     return it == this->tagValueMap.end() ? valueDefault : it->second;
   }
+  void setValue(const std::string& name, const std::string& value) {
+    auto result = nameValueMap.emplace(name, value);
+    if (!result.second) { // The key already exists
+      result.first->second = value;
+    }
+  }
+  void setValue(int tag, const std::string& value) {
+    auto result = tagValueMap.emplace(tag, value);
+    if (!result.second) { // The key already exists
+      result.first->second = value;
+    }
+  }
   std::string toString() const {
     std::string output =
         isFix ? "Element [tagValueMap = " + ccapi::toString(tagValueMap) + "]" : "Element [nameValueMap = " + ccapi::toString(nameValueMap) + "]";

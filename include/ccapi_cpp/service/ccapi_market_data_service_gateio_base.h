@@ -173,12 +173,11 @@ class MarketDataServiceGateioBase : public MarketDataService {
               auto splitted = UtilString::split(exchangeSubscriptionId, '|');
               std::string channelId = splitted.at(0);
               std::string symbolId = splitted.at(1);
-              if (this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).find(channelId) !=
-                  this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).end()) {
-                if (this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).at(channelId).find(symbolId) !=
-                    this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).at(channelId).end()) {
-                  std::vector<std::string> correlationIdList_2 =
-                      this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).at(channelId).at(symbolId);
+              const auto& it = this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).lower_bound(channelId);
+              if (it != this->correlationIdListByConnectionIdChannelIdSymbolIdMap.at(wsConnection.id).end()) {
+                const std::string& k = it->first;
+                if (k.compare(0, channelId.size(), channelId) == 0) {
+                  std::vector<std::string> correlationIdList_2 = it->second.at(symbolId);
                   correlationIdList.insert(correlationIdList.end(), correlationIdList_2.begin(), correlationIdList_2.end());
                 }
               }

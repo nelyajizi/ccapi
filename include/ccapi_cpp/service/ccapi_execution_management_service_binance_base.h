@@ -584,6 +584,7 @@ class ExecutionManagementServiceBinanceBase : public ExecutionManagementService 
           element.insert(CCAPI_IS_MAKER, data["m"].GetBool() ? "1" : "0");
           element.insert(CCAPI_EM_ORDER_ID, std::string(data["i"].GetString()));
           element.insert(CCAPI_EM_CLIENT_ORDER_ID, std::string(data["c"].GetString()));
+          element.insert(CCAPI_EM_ORDER_TIME, std::string(data["T"].GetString()));
           element.insert(CCAPI_EM_ORDER_INSTRUMENT, instrument);
           {
             auto it = data.FindMember("n");
@@ -616,6 +617,7 @@ class ExecutionManagementServiceBinanceBase : public ExecutionManagementService 
               {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("z", JsonDataType::STRING)},
               {CCAPI_EM_ORDER_CUMULATIVE_FILLED_PRICE_TIMES_QUANTITY, std::make_pair("Z", JsonDataType::STRING)},
               {CCAPI_EM_ORDER_STATUS, std::make_pair("X", JsonDataType::STRING)},
+              {CCAPI_EM_ORDER_TIME, std::make_pair("T", JsonDataType::STRING)},
               {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("s", JsonDataType::STRING)},
           };
           Element info;
