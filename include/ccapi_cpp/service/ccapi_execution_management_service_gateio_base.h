@@ -441,20 +441,20 @@ class ExecutionManagementServiceGateioBase : public ExecutionManagementService {
                   {CCAPI_EM_ORDER_QUANTITY, std::make_pair(this->amountName, JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_REMAINING_QUANTITY, std::make_pair("left", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("filled_total", JsonDataType::STRING)},
-                  {CCAPI_EM_ORDER_STATUS, std::make_pair("event", JsonDataType::STRING)},
+                  {CCAPI_EM_ORDER_STATUS, std::make_pair("finish_as", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair(this->symbolName, JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_TIME, std::make_pair("create_time_ms", JsonDataType::STRING)},
               };
               Element info;
               this->extractOrderInfo(info, x, extractionFieldNameMap);
               // New code to override CCAPI_EM_ORDER_REMAINING_QUANTITY
-              std::string event = info.getValue(CCAPI_EM_ORDER_STATUS);
-              std::string filledQuantity = info.getValue(CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY);
-              std::string totalQuantity = info.getValue(CCAPI_EM_ORDER_QUANTITY);
+              // std::string event = info.getValue(CCAPI_EM_ORDER_STATUS);
+              // std::string filledQuantity = info.getValue(CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY);
+              // std::string totalQuantity = info.getValue(CCAPI_EM_ORDER_QUANTITY);
 
-              if (event == "finish" && filledQuantity != totalQuantity) {
-                info.setValue(CCAPI_EM_ORDER_REMAINING_QUANTITY, "0");
-              }
+              // if (event == "finish" && filledQuantity != totalQuantity) {
+              //   info.setValue(CCAPI_EM_ORDER_REMAINING_QUANTITY, "0");
+              // }
               std::vector<Element> elementList;
               elementList.emplace_back(std::move(info));
               message.setElementList(elementList);
