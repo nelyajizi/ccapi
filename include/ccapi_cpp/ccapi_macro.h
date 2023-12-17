@@ -608,7 +608,7 @@
 #define CCAPI_BINANCE_US_LISTEN_KEY_PATH "/api/v3/userDataStream"
 #endif
 #ifndef CCAPI_BINANCE_URL_REST_BASE
-#define CCAPI_BINANCE_URL_REST_BASE "https://testnet.binance.vision"
+#define CCAPI_BINANCE_URL_REST_BASE "https://api.binance.com"
 #endif
 #ifndef CCAPI_BINANCE_CREATE_ORDER_PATH
 #define CCAPI_BINANCE_CREATE_ORDER_PATH "/api/v3/order"
@@ -728,10 +728,10 @@
 #define CCAPI_CRYPTOCOM_URL_REST_BASE "https://api.crypto.com"
 #endif
 #ifndef CCAPI_BYBIT_URL_REST_BASE
-#define CCAPI_BYBIT_URL_REST_BASE "https://api-testnet.bybit.com"
+#define CCAPI_BYBIT_URL_REST_BASE "https://api.bybit.com"
 #endif
 #ifndef CCAPI_BYBIT_DERIVATIVES_URL_REST_BASE
-#define CCAPI_BYBIT_DERIVATIVES_URL_REST_BASE "https://api-testnet.bybit.com"
+#define CCAPI_BYBIT_DERIVATIVES_URL_REST_BASE "https://api.bybit.com"
 #endif
 #ifndef CCAPI_ASCENDEX_URL_REST_BASE
 #define CCAPI_ASCENDEX_URL_REST_BASE "https://ascendex.com"
@@ -791,10 +791,10 @@
 #define CCAPI_BITMEX_URL_WS_BASE "wss://www.bitmex.com"
 #endif
 #ifndef CCAPI_BINANCE_US_URL_WS_BASE
-#define CCAPI_BINANCE_US_URL_WS_BASE "wss://testnet.binance.vision"
+#define CCAPI_BINANCE_US_URL_WS_BASE "wss://stream.binance.us:9443"
 #endif
 #ifndef CCAPI_BINANCE_URL_WS_BASE
-#define CCAPI_BINANCE_URL_WS_BASE "wss://testnet.binance.vision"
+#define CCAPI_BINANCE_URL_WS_BASE "wss://stream.binance.com:9443"
 #endif
 #ifndef CCAPI_BINANCE_USDS_FUTURES_URL_WS_BASE
 #define CCAPI_BINANCE_USDS_FUTURES_URL_WS_BASE "wss://fstream.binance.com"
@@ -857,10 +857,10 @@
 #define CCAPI_CRYPTOCOM_URL_WS_BASE "wss://stream.crypto.com"
 #endif
 #ifndef CCAPI_BYBIT_URL_WS_BASE
-#define CCAPI_BYBIT_URL_WS_BASE "wss://stream-testnet.bybit.com"
+#define CCAPI_BYBIT_URL_WS_BASE "wss://stream.bybit.com"
 #endif
 #ifndef CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE
-#define CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE "wss://stream-testnet.bybit.com"
+#define CCAPI_BYBIT_DERIVATIVES_URL_WS_BASE "wss://stream.bybit.com"
 #endif
 #ifndef CCAPI_ASCENDEX_URL_WS_BASE
 #define CCAPI_ASCENDEX_URL_WS_BASE "wss://ascendex.com"
