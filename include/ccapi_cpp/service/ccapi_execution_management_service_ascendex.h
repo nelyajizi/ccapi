@@ -297,8 +297,9 @@ class ExecutionManagementServiceAscendex : public ExecutionManagementService {
         {CCAPI_EM_ORDER_LIMIT_PRICE, std::make_pair("price", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("cumFilledQty", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_STATUS, std::make_pair("status", JsonDataType::STRING)},
+        {CCAPI_EM_ORDER_TIME, std::make_pair("lastExecTime", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("symbol", JsonDataType::STRING)}};
-        {CCAPI_EM_ORDER_TIME, std::make_pair("lastExecTime", JsonDataType::STRING)}};
+        
 
     auto itData = value.FindMember("data");
     if (itData != value.MemberEnd()) {
