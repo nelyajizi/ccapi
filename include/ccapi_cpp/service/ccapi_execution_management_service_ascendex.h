@@ -298,6 +298,8 @@ class ExecutionManagementServiceAscendex : public ExecutionManagementService {
         {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("cumFilledQty", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_STATUS, std::make_pair("status", JsonDataType::STRING)},
         {CCAPI_EM_ORDER_INSTRUMENT, std::make_pair("symbol", JsonDataType::STRING)}};
+        {CCAPI_EM_ORDER_TIME, std::make_pair("lastExecTime", JsonDataType::STRING)}};
+
     auto itData = value.FindMember("data");
     if (itData != value.MemberEnd()) {
       const rj::Value& data = itData->value;
@@ -479,9 +481,9 @@ class ExecutionManagementServiceAscendex : public ExecutionManagementService {
             if (fieldSet.find(CCAPI_EM_ORDER_UPDATE) != fieldSet.end()) {
               message.setType(Message::Type::EXECUTION_MANAGEMENT_EVENTS_ORDER_UPDATE);
               const std::map<std::string, std::pair<std::string, JsonDataType> >& extractionFieldNameMap = {
-                  {CCAPI_EM_ORDER_ID, std::make_pair("orderId", JsonDataType::INTEGER)},
+                  {CCAPI_EM_ORDER_ID, std::make_pair("orderId", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_SIDE, std::make_pair("sd", JsonDataType::STRING)},
-                  {CCAPI_EM_ORDER_LIMIT_PRICE, std::make_pair("p", JsonDataType::STRING)},
+                  {CCAPI_EM_ORDER_LIMIT_PRICE, std::make_pair("ap", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_QUANTITY, std::make_pair("q", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_CUMULATIVE_FILLED_QUANTITY, std::make_pair("cfq", JsonDataType::STRING)},
                   {CCAPI_EM_ORDER_STATUS, std::make_pair("st", JsonDataType::STRING)},
