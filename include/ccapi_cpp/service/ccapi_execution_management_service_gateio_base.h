@@ -423,6 +423,10 @@ class ExecutionManagementServiceGateioBase : public ExecutionManagementService {
               element.insert(CCAPI_EM_ORDER_LAST_EXECUTED_SIZE, x[this->amountName.c_str()].GetString());
               std::string takerSide = x["side"].GetString();
               element.insert(CCAPI_IS_MAKER, std::string(x["role"].GetString()) == "maker" ? "1" : "0");
+              element.insert(CCAPI_EM_ORDER_FEE_ASSET, x["fee_currency"].GetString());
+              element.insert(CCAPI_EM_ORDER_FEE_QUANTITY, x["point_fee"].GetString());
+              element.insert("FEE", x["fee"].GetString());
+              element.insert("REBATE_FEE", x["rebated_fee"].GetString());
               element.insert(CCAPI_EM_ORDER_INSTRUMENT, instrument);
               elementList.emplace_back(std::move(element));
               message.setElementList(elementList);
